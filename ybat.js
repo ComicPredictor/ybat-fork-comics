@@ -1106,6 +1106,8 @@
         document.getElementById("saveBboxes").addEventListener("click", () => {
             const zip = new JSZip()
 
+            console.log(bboxes)
+
             for (let imageName in bboxes) {
                 const image = images[imageName]
 
@@ -1118,6 +1120,7 @@
                 for (let className in bboxes[imageName]) {
                     for (let i = 0; i < bboxes[imageName][className].length; i++) {
                         const bbox = bboxes[imageName][className][i]
+                        const text = bbox.text
 
                         // Prepare data for yolo format
                         const x = (bbox.x + bbox.width / 2) / image.width
@@ -1125,7 +1128,7 @@
                         const width = bbox.width / image.width
                         const height = bbox.height / image.height
 
-                        result.push(`${classes[className]} ${x} ${y} ${width} ${height}`)
+                        result.push(`${classes[className]} ${x} ${y} ${width} ${height} <text>${text}</text>`)
                     }
                 }
 

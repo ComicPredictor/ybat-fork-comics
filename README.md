@@ -10,7 +10,8 @@ To see why and for what this was created, please read [Ybat - YOLO BBox Annotati
 1. Download the zip.
 2. Extract it.
 3. Open `ybat.html` in your browser.
-4. Load images and classes and start bboxing!
+4. Create a text file with newline-separated class names
+5. Load images and the text file to start bboxing!
 
 ## CONFIGURATION
 1. Open ybat.js.
